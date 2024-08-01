@@ -1,30 +1,10 @@
 from classe_Tarefa import Tarefa
+from funcoes import *
 
 tarefas: list[Tarefa] = []
 
-def adicionar_tarefa(nome_tarefa: str = "tarefa padrão", tarefas: list[Tarefa] = None) -> None:
-    tarefa: Tarefa  = {
-        "nome": nome_tarefa,
-        "completada": False
-    }
-    tarefas.append(tarefa)
-    print(f"Tarefa {nome_tarefa} foi adicionada com sucesso!")
-    
-def ver_tarefas(tarefas: list[Tarefa]) -> None:
-    print("\nLista de tarefas") 
-    for i, tarefa in enumerate(tarefas, start = 1):
-        status: str = "✓" if tarefa["completada"] == True else ""
-        nome_tarefa: str = tarefa['nome'] 
-        print(f"{i}. [{status}] {nome_tarefa}")
-        
 while True:
-    print("\nMenu do Gerenciador de Lista de Tarefas")
-    print("1. Adicionar tarefa")
-    print("2. Ver tarefas")
-    print("3. Actualizar tarefa")
-    print("4. Completar tarefa")
-    print("5. Deletar tarefas completadas")
-    print("6. Sair do programa")
+    mostrar_menu()
 
     escolha: str = input("Digite a sua escolha: ")
 
@@ -33,6 +13,11 @@ while True:
         adicionar_tarefa(nome_tarefa, tarefas)
     elif escolha == "2":
         ver_tarefas(tarefas)
+    elif escolha == "3":
+        ver_tarefas(tarefas)
+        indice_tarefa: int = int (input("Digite o número da tarefa que deseja atualizar: "))
+        novo_nome: str = input("Digite o novo nome da tarefa: ")
+        atualizar_nome_tarefa(tarefas, indice_tarefa, novo_nome)
     elif escolha == "6":
         break
 
