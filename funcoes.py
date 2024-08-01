@@ -37,3 +37,10 @@ def completar_tarefa(tarefas: list[Tarefa], indice_tarefa: int)-> None:
         print(f"Tarefa {indice_tarefa} marcada como completada")
     else:
         print("Índice de tarefa invalido.")
+        
+def deletar_tarefas_completadas(tarefas: list[Tarefa])-> None:
+    for tarefa in tarefas:
+        if tarefa["completada"]:
+            tarefas.remove(tarefa)        
+    print("Tarefas completadas fuerom deletadas.")    
+    

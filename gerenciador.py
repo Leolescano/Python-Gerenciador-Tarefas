@@ -22,6 +22,9 @@ while True:
         ver_tarefas(tarefas)
         indice_tarefa: int = int (input("Digite o número da tarefa que deseja completar: "))
         completar_tarefa(tarefas, indice_tarefa)
+    elif escolha == "5":
+        deletar_tarefas_completadas(tarefas)
+        ver_tarefas(tarefas)
     elif escolha == "6":
         break
 
