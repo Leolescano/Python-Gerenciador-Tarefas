@@ -30,3 +30,10 @@ def atualizar_nome_tarefa(tarefas: list[Tarefa], indice_tarefa: int, novo_nome: 
         print(f"Tarefa {indice_tarefa} atualizada para {novo_nome}")
     else:
         print("Índice de tarefa invalido.")
+        
+def completar_tarefa(tarefas: list[Tarefa], indice_tarefa: int)-> None:
+    if indice_tarefa > 0 and indice_tarefa <= len(tarefas):
+        tarefas[indice_tarefa - 1]["completada"] = True
+        print(f"Tarefa {indice_tarefa} marcada como completada")
+    else:
+        print("Índice de tarefa invalido.")
